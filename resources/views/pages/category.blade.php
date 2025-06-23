@@ -12,7 +12,7 @@
             <div class="table-responsive">
                 <table class="table table-striped table-bordered">
                     <thead>
-                        <tr>
+                        <tr class="table-primary">
                             <th scope="col">No</th>
                             <th scope="col">Name Category</th>
                             <th scope="col">Balance</th>

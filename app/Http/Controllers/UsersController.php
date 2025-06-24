@@ -55,7 +55,6 @@ class UsersController extends Controller
             'email' => 'required|string|email|max:255|unique:users,email,'.$user->id,
             'password' => [
                 'nullable',
-                'confirmed',
                 Password::min(8)
             ],
         ]);

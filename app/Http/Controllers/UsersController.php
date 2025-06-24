@@ -21,7 +21,7 @@ class UsersController extends Controller
             });
         }
         
-        $data = $query->orderBy('created_at', 'desc')->paginate(10);
+        $data = $query->orderBy('created_at', 'desc')->get();
         return view('pages.users', compact('data'));
     }
 

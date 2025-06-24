@@ -22,7 +22,7 @@
                     <tbody>
                         @foreach ($data as $item)
                             <tr>
-                                <th scope="row">{{ ($data->currentPage() - 1) * $data->perPage() + $loop->iteration }}</th>
+                                <th scope="row">{{$loop->iteration}}</th>
                                 <td>{{$item->name_category}}</td>
                                 <td>{{number_format($item->category_balance, 0 , ',', '.')}}</td>
                                 <td>{{$item->created_at->format('d/m/Y H:i')}}</td>

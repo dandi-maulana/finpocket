@@ -22,7 +22,7 @@
                     <tbody>
                         @foreach ($data as $item)
                             <tr>
-                                <th scope="row">{{ ($data->currentPage() - 1) * $data->perPage() + $loop->iteration }}</th>
+                                <th scope="row">{{$loop->iteration}}</th>
                                 <td>
                                     @if ($item->withdraw == 0)
                                         <span class="text-muted">no withdrawal</span>

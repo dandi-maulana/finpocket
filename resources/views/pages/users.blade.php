@@ -34,7 +34,6 @@
                             <th scope="col">No</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Balance</th>
                             <th scope="col">Registered</th>
                             <th scope="col">Actions</th>
                         </tr>
@@ -42,10 +41,9 @@
                     <tbody>
                         @foreach ($data as $item)
                             <tr>
-                                <th scope="row">{{ ($data->currentPage() - 1) * $data->perPage() + $loop->iteration }}</th>
+                                <th scope="row">{{$loop->iteration}}</th>
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->email }}</td>
-                                <td>Rp. {{ number_format($item->main_balance, 0, ',', '.') }}</td>
                                 <td>{{ $item->created_at->format('d/m/Y H:i') }}</td>
                                 <td>
                                     <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editUserModal{{ $item->id }}">
@@ -76,10 +74,6 @@
                                                 <div class="mb-3">
                                                     <label for="email" class="form-label">Email</label>
                                                     <input type="email" class="form-control" id="email" name="email" value="{{ $item->email }}" required>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="main_balance" class="form-label">Balance</label>
-                                                    <input type="number" class="form-control" id="main_balance" name="main_balance" value="{{ $item->main_balance }}" required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="password" class="form-label">Password (leave blank to keep current)</label>
@@ -122,9 +116,6 @@
                     </tbody>
                 </table>
             </div>
-            <div class="d-flex justify-content-center mt-4">
-                {{ $data->links() }}
-            </div>
         </div>
     </div>
 
@@ -146,10 +137,6 @@
                         <div class="mb-3">
                             <label for="new_email" class="form-label">Email</label>
                             <input type="email" class="form-control" id="new_email" name="email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="new_main_balance" class="form-label">Initial Balance</label>
-                            <input type="number" class="form-control" id="new_main_balance" name="main_balance" value="0" required>
                         </div>
                         <div class="mb-3">
                             <label for="new_password" class="form-label">Password</label>

@@ -27,10 +27,6 @@ class AuthenticationController extends Controller
                 'required',
                 'confirmed',
                 Password::min(8)
-                    ->letters()
-                    ->mixedCase()
-                    ->numbers()
-                    ->symbols()
             ],
         ]);
 

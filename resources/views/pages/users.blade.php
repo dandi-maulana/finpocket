@@ -141,11 +141,7 @@
                         <div class="mb-3">
                             <label for="new_password" class="form-label">Password</label>
                             <input type="password" class="form-control" id="new_password" name="password" required>
-                            <small class="text-muted">Minimum 8 characters with letters, numbers, and symbols</small>
-                        </div>
-                        <div class="mb-3">
-                            <label for="password_confirmation" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
+                            <small class="text-muted">Minimum 8 characters</small>
                         </div>
                     </div>
                     <div class="modal-footer">

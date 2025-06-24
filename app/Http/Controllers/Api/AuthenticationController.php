@@ -25,7 +25,6 @@ class AuthenticationController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => [
                 'required',
-                'confirmed',
                 Password::min(8)
             ],
         ]);
@@ -139,7 +138,7 @@ class AuthenticationController extends Controller
 
         $validator = Validator::make($request->all(), [
             'name' => 'sometimes|string|max:255',
-            'email' => 'sometimes|string|email|max:255|unique:users,email,'.$user->id,
+            'email' => 'sometimes|string|email|max:255|unique:users,email,' . $user->id,
             'password' => [
                 'sometimes',
                 'confirmed',
@@ -160,7 +159,7 @@ class AuthenticationController extends Controller
         }
 
         $data = $request->only(['name', 'email']);
-        
+
         if ($request->has('password')) {
             $data['password'] = Hash::make($request->password);
         }

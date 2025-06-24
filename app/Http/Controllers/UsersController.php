@@ -30,22 +30,16 @@ class UsersController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'main_balance' => 'required|integer',
             'password' => [
                 'required',
                 'confirmed',
                 Password::min(8)
-                    ->letters()
-                    ->mixedCase()
-                    ->numbers()
-                    ->symbols()
             ],
         ]);
 
         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'main_balance' => $request->main_balance,
             'password' => Hash::make($request->password),
         ]);
 
@@ -59,22 +53,16 @@ class UsersController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,'.$user->id,
-            'main_balance' => 'required|integer',
             'password' => [
                 'nullable',
                 'confirmed',
                 Password::min(8)
-                    ->letters()
-                    ->mixedCase()
-                    ->numbers()
-                    ->symbols()
             ],
         ]);
 
         $data = [
             'name' => $request->name,
             'email' => $request->email,
-            'main_balance' => $request->main_balance,
         ];
 
         if ($request->password) {
